@@ -1,0 +1,4 @@
+This is so cool. I am using vim in Linux.
+This is another line
+that I want to have in my file
+that's it. 
