@@ -21,13 +21,14 @@
 
 // Constants
 const double GRAVITY = 9.8;   // ms^2
-// Function Prototypes
+const double BUILDING = 500;  // meters
 
 // Main Function
 int main()
 {
     double time = 0;
     double distance = 0;
+    double fromGround = 0;
     // Take user input: time travelled
     printf("Enter the time in seconds: ");
     scanf("%lf", &time);
@@ -36,7 +37,9 @@ int main()
     // Display distance
     printf("After %lf seconds, your ball travelled %lf meters\n", 
             time, distance);
-
+    // Distance from the ground in meters
+    fromGround = BUILDING - distance;
+    printf("The ball is %lf meters from the ground\n", fromGround);
     return 0;
 }
 // Function Definitions
