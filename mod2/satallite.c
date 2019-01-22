@@ -27,18 +27,20 @@ const double PI = 3.1415941;        // PI
 int main()
 {
     double period = 0;
-    double height = 0;
+    long double height = 0;
     // 1) Enter the period (time) in seconds
     printf("Enter the period (T) in seconds: ");
     scanf("%lf", &period);
     // Calculate Height = [(G M T^2)/(4PI^2)]^1/3 - R
-    height = GRAVITY * E_MASS * pow(period, 2); // get the numerator
-    height = height/(4*pow(PI,2)); // denominator
-    height = pow(height,1/3);
-    height = height - E_RADIUS; 
-    // Display result: ex: 86400 seconds -> 35855 meters
-    printf("Your satellite after %lf sec is %lf meters from earth\n",
-            period, height);
+//    height = GRAVITY * E_MASS * pow(period, 2); // get the numerator
+//    height = height/(4*pow(PI,2)); // denominator
+//    height = pow(height, 1.0/3);    // use pow(base,1.0/n) for the nth root
+//    height = cbrt(height);    // use pow(base,1.0/n) for the nth root
+    
+    height = cbrt((GRAVITY * E_MASS * pow(period,2))/(4*pow(PI,2))) - E_RADIUS; //
+    // Display result: ex: 86400 seconds -> 35855 km
+    printf("Your satellite after %lf sec is %Lf km from earth\n",
+            period, height/1000);
 
     return 0;
 }
