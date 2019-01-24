@@ -20,13 +20,17 @@
 // Main Function
 int main()
 {
-    int num; 
-    printf("Enter an integer: ");
-    scanf("%d", &num);
+    int num1, num2; 
+    printf("Enter an even and an odd number: ");
+    scanf("%d %d", &num1, &num2);
     // test value for even or odd
-    if(num % 2 == 0)
+    if((num1 + num2) % 2 != 0)
     {
-        printf("%d is even\n", num);
+        printf("%d and %d are an even and odd numbers\n", num1, num2);
+    }
+    else
+    {
+        printf("%d and %d are not an even and odd numbers\n", num1, num2);
     }
     printf("Adios amigo\n");
 
