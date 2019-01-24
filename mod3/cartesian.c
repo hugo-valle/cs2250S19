@@ -36,9 +36,13 @@ int main()
     // 3) Calculate your cartesian coordinates
     x_pos = radius*cos(theta);
     y_pos = radius*sin(theta);
-    // 4) Print the result
-    printf("Your Cartesian Coordinates, x = [%lf], y = [%lf]\n",
-            x_pos, y_pos);
+    // 4) Print the result: format should be 2 decimal places for x and y
+    // %.2lf use only 2 decimal places
+    // %6.2lf use only 2 decimal places, 6 chars wide
+    // %-6.2lf use only 2 decimal places, 6 chars wide, left justify
+    // %06.2lf use only 2 decimal places, 6 chars wide, zero patted
+    printf("Your Cartesian Coordinates, x = [%06.2lf]\n", x_pos);
+    printf("Your Cartesian Coordinates, y = [%06.2lf]\n", y_pos);
 
     return 0;
 }
