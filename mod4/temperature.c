@@ -85,6 +85,11 @@ int main()
 			water_state = BOIL;
 		}
 		// && -> AND 
+		// || -> OR
+		// ! -> NOT
+		// == 
+		// != 
+		// >, < , >=, <=
 		else if (in_temp > FREEZE_FAHR && in_temp < BOIL_CEL)
 		{
 			water_state = LIQUID;
