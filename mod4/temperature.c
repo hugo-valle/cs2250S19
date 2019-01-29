@@ -16,10 +16,14 @@
  * =====================================================================================
  */
 #include <stdio.h>
-//const int CELSIUS = 0;
-//const int FAHRENHEIT = 1;
+// Constants
 #define CELSIUS 0
 #define FAHRENHEIT 1
+#define BOIL_CEL 100
+#define BOIL_FAHR 212
+#define FREEZE_CEL 0
+#define FREEZE_FAHR 32
+
 // Main Function
 int main()
 {
@@ -52,8 +56,23 @@ int main()
         printf("Sorry, you did not entered 0 or 1\nAdios amigo\n");
         return 0;
     }
+    // Task 2: 
+    // Test for boiling point, freezing point, and liquid point
+    if(choice == CELSIUS)
+    {
+        if(in_temp >= BOIL_CEL)
+        {
+            printf("Your water is boiling\n");
+        }
+    }
+    else   // FAHRENHEIT
+    {
+        if(in_temp >= BOIL_FAHR)
+        {
+            printf("Your water is boiling\n");
+        }
+    }
+
+
     return 0;
 }
-// Function Definitions
-
-
