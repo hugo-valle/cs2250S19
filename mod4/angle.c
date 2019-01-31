@@ -30,6 +30,9 @@ int main()
     printf("Please enter an angle: ");
     scanf("%d", &angle);
 
+    // Check for angles > 360
+    angle = angle % 360;
+        
     if(angle > 0 && angle < 90)         // Quadrant I
     {
         printf("\nThe angle is in quadrant I\n");
