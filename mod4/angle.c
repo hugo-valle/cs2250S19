@@ -23,14 +23,34 @@
 
 // Constants
 
-// Function Prototypes
-
 // Main Function
 int main()
 {
+    int angle;
+    printf("Please enter an angle: ");
+    scanf("%d", &angle);
+
+    if(angle > 0 && angle < 90)         // Quadrant I
+    {
+        printf("\nThe angle is in quadrant I\n");
+    }
+    else if(angle > 90 && angle < 180)  // Quadrant II
+    {
+        printf("\nThe angle is in quadrant II\n");
+    }
+    else if(angle > 180 && angle < 270)  // Quadrant III
+    {
+        printf("\nThe angle is in quadrant III\n");
+    }
+    else if(angle > 270 && angle < 360)  // Quadrant IV
+    {
+        printf("\nThe angle is in quadrant IV\n");
+    }
+    else
+    {
+        printf("\nIncorrect angle\n");
+    }
+
 
     return 0;
 }
-// Function Definitions
-
-
