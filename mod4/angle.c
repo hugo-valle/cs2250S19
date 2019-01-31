@@ -75,7 +75,7 @@ int main()
                 printf("The angle is on the negative X axis\n");
                 break;
             case 270:
-                printf("The angle is on the negative X axis\n");
+                printf("The angle is on the negative Y axis\n");
                 break;
         }
     } // end of ON axis
