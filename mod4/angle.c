@@ -12,7 +12,7 @@
  *        Version:  1.0
  *        Created:  01/31/2019 08:35:03 AM
  *       Revision:  none
- *       Compiler:  gcc angle.c -o angle.out 
+ *       Compiler:  gcc angle.c -o angle.out -lm
  *
  *         Author:  Hugo Valle (), hugovalle1@weber.edu
  *   Organization:  WSU
@@ -20,6 +20,8 @@
  * =====================================================================================
  */
 #include <stdio.h>
+#include <stdlib.h>         // for regular abs()
+#include <math.h>           // for fabs()
 
 // Constants
 
@@ -32,6 +34,11 @@ int main()
 
     // Check for angles > 360
     angle = angle % 360;
+    
+    if(angle < 0)       // Check for negative angle
+    {
+        angle = abs(360 + angle);
+    }
         
     if(angle > 0 && angle < 90)         // Quadrant I
     {
