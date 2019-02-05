@@ -22,6 +22,7 @@
 int main()
 {
     // Task 1: Calculate the average of user input values
+    // Task 2: Validate user input for 0 to 100 only
     int count = 0;
     float grade, avg;
     float total = 0;
@@ -30,6 +31,11 @@ int main()
     {
         printf("\nEnter %d hw grade(0-100): ", count + 1);
         scanf("%f", &grade);
+        if(grade < 0 || grade > 100)
+        {
+            printf("Invalid input. Please try again\n");
+            continue;       // invalid input
+        }
         total += grade;     // add up grades
         count++;            // update test condition: sentinel
     }
