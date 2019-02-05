@@ -16,9 +16,13 @@
  * =====================================================================================
  */
 #include <stdio.h>
+#include <stdbool.h>       // for true and false variables
 // Constants
 #define MINCOUNT 2
 #define MAXCOUNT 5
+#define MINGRADE 0
+#define MAXGRADE 100
+#define MAXSTUDENTS 3
 // Main Function
 int main()
 {
@@ -27,45 +31,59 @@ int main()
     // Task 3: Ask user how many values they need to enter
     // Task 4: If user enters a number below MINCOUNT set it MINCOUNT
     //         and if user enters a value greater than MAXCOUNT, set it to MAXCOUNT
-    int count = 0;
+    // Task 5: Support multiple student entries. Calculate class average.
+    // Task 6: Display student letter grade
+    int hw_count;
+    int grade_count = 0, student_count = 1;
     float grade, avg;
-    float total = 0;
-    int student_count;
+    float total = 0, class_avg = 0;
 
-    printf("How many hw values you want to enter (between %d and %d? ", 
-            MINCOUNT, MAXCOUNT);
-    scanf("%d", &student_count);
-    if(student_count < MINCOUNT)
+    while(student_count <= MAXSTUDENTS)             // loop over students
     {
-        printf("%d is lower than %d. Setting your entry to %d\n", 
-                student_count, MINCOUNT, MINCOUNT);
-        student_count = MINCOUNT;
-    }
-    if(student_count >  MAXCOUNT)
-    {
-        printf("%d is greater than %d. Setting your entry to %d\n", 
-                student_count, MAXCOUNT, MAXCOUNT);
-        student_count = MAXCOUNT;
-    }
+        printf("Processing %d student grades\n", student_count);
+        printf("How many hw values you want to enter (between %d and %d? ", 
+                MINCOUNT, MAXCOUNT);
+        scanf("%d", &hw_count);
+        if(hw_count < MINCOUNT)
+        {
+            printf("%d is lower than %d. Setting your entry to %d\n", 
+                    hw_count, MINCOUNT, MINCOUNT);
+            hw_count = MINCOUNT;
+        }
+        if(hw_count >  MAXCOUNT)
+        {
+            printf("%d is greater than %d. Setting your entry to %d\n", 
+                    hw_count, MAXCOUNT, MAXCOUNT);
+            hw_count = MAXCOUNT;
+        }
 
-    while(count < MAXCOUNT)
-    {
-        printf("\nEnter %d hw grade(0-100): ", count + 1);
-        scanf("%f", &grade);
-        if(grade < 0 || grade > 100)
+        while(grade_count < MAXCOUNT)
         {
-            printf("Invalid input. Please try again\n");
-            continue;       // invalid input
-        }
-        total += grade;     // add up grades
-        count++;            // update test condition: sentinel
-        if(count == student_count)
-        {
-            break;          // reach the student_count
-        }
-    }
-    avg = total/MAXCOUNT;
-    printf("Your avg is [%6.2f]\n", avg);
+            printf("\nEnter %d hw grade(%d-%d): ", 
+                    grade_count + 1, MINGRADE, MAXGRADE);
+            scanf("%f", &grade);
+            if(grade < MINGRADE || grade > MAXGRADE)
+            {
+                printf("Invalid input. Please try again\n");
+                continue;       // invalid input
+            }
+            total += grade;     // add up grades
+            grade_count++;            // update test condition: sentinel
+            if(grade_count == hw_count)
+            {
+                break;          // reach the hw_count
+            }
+        } // end of one student loop
+        avg = total/hw_count;
+        class_avg += avg;       // get class avg.
+        printf("Your avg is [%6.2f]\n", avg);
+        // reset value
+        grade_count = 0; 
+        total = 0;
+        
+        student_count++;
+    }  // end of students loop
+    printf("Your class avg is [%6.2f]\n", class_avg/MAXSTUDENTS);
     printf("\nBye amigo\n");
     return 0;
 }
