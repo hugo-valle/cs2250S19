@@ -25,6 +25,8 @@ int main()
     // Task 1: Calculate the average of user input values
     // Task 2: Validate user input for 0 to 100 only
     // Task 3: Ask user how many values they need to enter
+    // Task 4: If user enters a number below MINCOUNT set it MINCOUNT
+    //         and if user enters a value greater than MAXCOUNT, set it to MAXCOUNT
     int count = 0;
     float grade, avg;
     float total = 0;
@@ -33,7 +35,18 @@ int main()
     printf("How many hw values you want to enter (between %d and %d? ", 
             MINCOUNT, MAXCOUNT);
     scanf("%d", &student_count);
-
+    if(student_count < MINCOUNT)
+    {
+        printf("%d is lower than %d. Setting your entry to %d\n", 
+                student_count, MINCOUNT, MINCOUNT);
+        student_count = MINCOUNT;
+    }
+    if(student_count >  MAXCOUNT)
+    {
+        printf("%d is greater than %d. Setting your entry to %d\n", 
+                student_count, MAXCOUNT, MAXCOUNT);
+        student_count = MAXCOUNT;
+    }
 
     while(count < MAXCOUNT)
     {
