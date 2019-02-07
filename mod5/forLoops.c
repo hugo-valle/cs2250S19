@@ -23,7 +23,7 @@
 int main()
 {
     int num = 0;
-    for(int i = 0; i < MAX_NUMBER; ++i) 
+    for(int i = 0; i < MAX_NUMBER; i++) 
     {
         printf("your i [%d] num++[%d]\n", i, num++);
         printf("num is [%d]\n", num);
