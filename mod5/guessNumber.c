@@ -19,19 +19,30 @@
 #include <stdlib.h>     // rand(), srand()
 #include <time.h>       // time()
 // Constants
-#define MAX 3
+#define MAX 5
+#define LIMIT 100
 // Main Function
 int main()
 {
     int number, guess;
     srand(time(0));              // set the random SEED
-    guess = rand() % 10;         // set random number between 0-9
+    guess = rand() % LIMIT;         // set random number between 0-9
     // int i; // before C89 you need to define i outside loop 
     for(int i = 0; i < MAX; i++)
     {
-        printf("Please guess a number between 0 and 10\n");
+        printf("Please guess a number between 0 and %d\n", LIMIT - 1);
+        printf("You have %d opportunities left\n", MAX - i);
         scanf("%d", &number);
-        if(number == guess)
+
+        if(number > guess)
+        {
+            printf("Go lower\n");
+        }
+        else if(number < guess)
+        {
+            printf("Go higher\n");
+        }
+        else
         {
             printf("Congratulations, you got the correct number\n");
             return 0;
