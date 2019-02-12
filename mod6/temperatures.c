@@ -16,26 +16,32 @@
  * =====================================================================================
  */
 #include <stdio.h>
+#include <time.h>       // time()
+#include <stdlib.h>     // rand(), srand()
 // Constants
 #define NUM 4
+#define MIN 20      // min temp
+#define MAX 45      // max temp
 // Main Function
 int main()
 {
     double max_ogden[NUM]; 
     double min_ogden[NUM]; 
+    srand(time(0));         // set random seed
 
-    printf("Enter the max and min Ogden temp for the next %d days\n", NUM);
+
+    printf("Simulating the max and min Ogden temp for the next %d days\n", NUM);
     // TASK: Capture max and min temps from user
     for(int i = 0; i < NUM; i++)
     {
-        printf("%d day max and min\n", i+1);
-        scanf("%lf %lf", &max_ogden[i], &min_ogden[i]); 
+        min_ogden[i] = ((rand() % MIN) + (rand() % MAX))/2;
+        max_ogden[i] = min_ogden[i] + (rand() % (MAX - MIN));
     }
 
     // TASK: Display information
     for(int i = 0; i < NUM; i++)
     {
-        printf("%2d)  max[%6.2lf] min[%6.2lf] temps in Ogden\n", 
+        printf("%2d) max[%6.2lf] min[%6.2lf] temps in Ogden\n", 
                 i+1,  max_ogden[i], min_ogden[i]);
     }
     // TASK: Calculate the average and min and max of the date range
