@@ -19,7 +19,7 @@
 #include <time.h>       // time()
 #include <stdlib.h>     // rand(), srand()
 // Constants
-#define NUM 4
+#define NUM 40
 #define MIN 20      // min temp
 #define MAX 45      // max temp
 // Main Function
