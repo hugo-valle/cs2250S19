@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h>     // rand(), srand()
+#include <time.h>       // time()
 
 // Constants
 #define PERSONS 5
@@ -28,12 +28,13 @@
 // Main Function
 int main()
 {
-    double people[PERSONS][ATTRI];
+    //             [row][cols]
+    double people[PERSONS][ATTRI];              /* 2D array */
     srand(time(0));  // set random seed
 
-    for(int i = 0; i < PERSONS; i++)
+    for(int i = 0; i < PERSONS; i++)            /* loop over Persons 1D */
     {
-        for(int j = 0; j < ATTRI; j++)
+        for(int j = 0; j < ATTRI; j++)          /* loop over attributes 2D */
         {
             if(j == AGE)
             {
@@ -49,10 +50,28 @@ int main()
             }
         }
     }
-    printf("Person 2 has height of[%lf]\n", people[3][HEIGHT]);
-
+    // Now display the information
+    for(int row = 0 ; row < PERSONS ; row++ ) 
+    {
+        printf("%d person information\n", row + 1);
+        for (int col= 0; col < ATTRI; col++) 
+        {
+            switch(col) 
+            {
+                case AGE:
+                    printf("\tYour age is %6.0lf\n", people[row][col]);
+                    break;
+                case WEIGHT:
+                    printf("\tYour weight is %6.2lf\n", people[row][col]);
+                    break;
+                case HEIGHT:
+                    printf("\tYour height is %6.2lf\n", people[row][col]);
+                    break;
+            } /* end of switch */
+        } // end of col loop
+        printf("Done with attributes\n");
+    } // end of row loop
+    printf("Done with persons\n");
     return 0;
 }
 // Function Definitions
-
-
