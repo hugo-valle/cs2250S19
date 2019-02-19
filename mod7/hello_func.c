@@ -23,6 +23,7 @@
 void Hello_World();
 void Hello_Number(int num);
 int Get_Square(int num);
+int Get_Number();
 
 // Main Function
 int main(int argc, char* argv[])
@@ -33,6 +34,9 @@ int main(int argc, char* argv[])
     Hello_Number(i1);
     
     i1 = Get_Square(i1);
+    Hello_Number(i1);
+
+    i1 = Get_Number();
     Hello_Number(i1);
 
     return 0;
@@ -87,3 +91,21 @@ int Get_Square(int num)
     return square;
 }
 
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Get_Number
+ *  Description:  Ask user to enter an integer and return it
+ *  Param: None
+ *  Return: User int input
+ * =====================================================================================
+ */
+int Get_Number()
+{
+    int input;
+    // Algorithm
+    printf("Please enter an int value: ");
+    scanf("%d", &input);
+    return input;
+}
