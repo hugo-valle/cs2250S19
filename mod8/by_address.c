@@ -24,6 +24,7 @@
 void DisplayPosition(double x, double y);
 void DisplayOrigPosition(double* x, double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
+void ResetPosition(double* x, double* y);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -37,10 +38,12 @@ int main(int argc, char* argv[])
     }
     x = atof(argv[1]);   // convert the first input param to double
     y = atof(argv[2]);   // convert the second input param to double
-    printf("Your current position address is (%p,%p) (main)\n", &x, &y);
-    DisplayOrigPosition(&x, &y);   // takes two addresses of type double
+//    printf("Your current position address is (%p,%p) (main)\n", &x, &y);
+    DisplayOrigPosition(&x, &y);    // takes two addresses of type double
     UpdatePosition(&x, &y, 2.0, 4.1);
-    DisplayOrigPosition(&x, &y);   // takes two addresses of type double
+    DisplayOrigPosition(&x, &y);    // takes two addresses of type double
+    ResetPosition(&x, &y);          // Reset values to origin
+    DisplayOrigPosition(&x, &y);    // takes two addresses of type double
 
 
     return 0;
@@ -59,7 +62,7 @@ int main(int argc, char* argv[])
 void DisplayPosition(double x, double y)
 {
     printf("Your current position is (%4.2lf,%4.2lf)\n", x, y);
-    printf("Your current position address is (%p,%p)\n", &x, &y);
+//    printf("Your current position address is (%p,%p)\n", &x, &y);
     return;
 }
 
@@ -78,7 +81,7 @@ void DisplayOrigPosition(double* x, double* y)
     // To display the values of pointers/address use the 
     // dereference operator "*". This only applies to pointers
     printf("Your current position  is (%4.2lf,%4.2lf) (orig)\n", *x, *y);
-    printf("Your current original address is (%p,%p) (orig)\n", x, y);
+//    printf("Your current original address is (%p,%p) (orig)\n", x, y);
     return;
 }
 
@@ -98,6 +101,25 @@ void UpdatePosition(double* x, double* y, double new_x, double new_y)
     printf("*****Updating position*****\n");
     *x = new_x;  // Dereference the pointer to update the value
     *y = new_y;
+
+    return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ResetPosition
+ *  Description:  Reset point point to origin (0,0)
+ *  Param: x => x coordinate address
+ *  Param: y => y coordinate address
+ *  Returns: nothing
+ * =====================================================================================
+ */
+void ResetPosition(double* x, double* y)
+{
+    printf("*****Reseting position*****\n");
+    *x = 0;  // Dereference the pointer to update the value
+    *y = 0;
 
     return;
 }
