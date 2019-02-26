@@ -22,7 +22,7 @@
 
 // Function Prototypes
 void DisplayPosition(double x, double y);
-void DisplayOrigPosition(double* x, double* y);
+void DisplayOrigPosition(const double* x, const double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
 void ResetPosition(double* x, double* y);
 
@@ -76,7 +76,7 @@ void DisplayPosition(double x, double y)
  *  Returns: nothing
  * =====================================================================================
  */
-void DisplayOrigPosition(double* x, double* y)
+void DisplayOrigPosition(const double* x, const double* y)
 {
     // To display the values of pointers/address use the 
     // dereference operator "*". This only applies to pointers
