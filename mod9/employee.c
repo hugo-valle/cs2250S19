@@ -38,21 +38,21 @@ typedef struct Employee
 // Function Prototypes
 double CalcNet(Employee emp);  // pass by value
 double CalcGross(Employee* emp);  // pass by reference
+void CreateEmployee(Employee* emp);
+void CalcPay(Employee* emp);
+void DisplayEmp(const Employee* emp);
+
 
 // Main Function
 int main(int argc, char* argv[])
 {
-    Employee waldo = {1, 7.50, 20};
-    // Set tax rate
-    waldo.taxRate = TAXRATE1;
-    
-    waldo.netPay = CalcNet(waldo);          // pass by value
-    printf("Hi Waldo, your net pay for %lf hours at %lf rate is %lf\n",
-            waldo.hours, waldo.payRate, waldo.netPay);
+    Employee waldo;
 
-    waldo.grossPay = CalcGross(&waldo);     // pass by reference
-    printf("Hi Waldo, your gross pay for %lf hours at %lf rate is %lf\n",
-            waldo.hours, waldo.payRate, waldo.grossPay);
+    CreateEmployee(&waldo);
+    CalcPay(&waldo);
+    DisplayEmp(&waldo);
+
+    
 
     return 0;
 }
@@ -85,4 +85,58 @@ double CalcGross(Employee* emp) // pass by reference
     // To access structure members when using a pointer (address)
     // use the dereference operator  "->"
     return emp->payRate * emp->hours;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  CreateEmployee
+ *  Description:  Create Employee record
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void CreateEmployee(Employee* emp)
+{
+    emp->idNum = 1;
+    emp->payRate =7.50;
+    emp->hours =20;
+    emp->taxRate = TAXRATE1;
+    return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  CalcPay
+ *  Description:  Calculate the Gross and Net pay for the Employee
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void CalcPay(Employee* emp)
+{
+    //Note: emp in an address(pointer), so if you need to pass it to function
+    // that requires a pointer, then just use the name: emp
+    // if you need to pass the VALUES, you need to dereference the reference
+    // so use the *emp to access the values at the address
+    //
+    emp->netPay = CalcNet(*emp);           // pass by value
+    emp->grossPay = CalcGross(emp);     // pass by reference
+    return;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DisplayEmp
+ *  Description:  Display Employee Information
+ *  Param: Employee Structure
+ * =====================================================================================
+ */
+void DisplayEmp(const Employee* emp)
+{
+    printf("Hi Waldo, your net pay for %lf hours at %lf rate is %lf\n",
+            emp->hours, emp->payRate, emp->netPay);
+
+    printf("Your gross pay is %lf\n", emp->grossPay);
+    return;
 }
