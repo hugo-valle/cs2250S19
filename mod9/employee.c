@@ -20,21 +20,7 @@
 #include <stdlib.h>
 #include "employee.h"
 
-// Main Function
-int main(int argc, char* argv[])
-{
-    Employee waldo;
-
-    CreateEmployee(&waldo);
-    CalcPay(&waldo);
-    DisplayEmp(&waldo);
-
-    
-
-    return 0;
-}
 // Function Defenitions
-
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  CalcNet
