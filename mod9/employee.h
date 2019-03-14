@@ -36,7 +36,7 @@ typedef struct Employee
 // Function Prototypes
 double CalcNet(Employee emp);  // pass by value
 double CalcGross(Employee* emp);  // pass by reference
-void CreateEmployee(Employee* emp);
+void CreateEmployee(Employee* emp, int idNum);
 void CalcPay(Employee* emp);
 void DisplayEmp(const Employee* emp);
 

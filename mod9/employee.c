@@ -58,10 +58,10 @@ double CalcGross(Employee* emp) // pass by reference
  *  Param: Employee Structure
  * =====================================================================================
  */
-void CreateEmployee(Employee* emp)
+void CreateEmployee(Employee* emp, int idNum)
 {
-    emp->idNum = 1;
-    emp->payRate =7.50;
+    emp->idNum = idNum;
+    emp->payRate =7.50 * emp->idNum;
     emp->hours =20;
     emp->taxRate = TAXRATE1;
     return;
@@ -97,8 +97,8 @@ void CalcPay(Employee* emp)
  */
 void DisplayEmp(const Employee* emp)
 {
-    printf("Hi Waldo, your net pay for %lf hours at %lf rate is %lf\n",
-            emp->hours, emp->payRate, emp->netPay);
+    printf("Hi [%03d], your net pay for %lf hours at %lf rate is %lf\n",
+            emp->idNum, emp->hours, emp->payRate, emp->netPay);
 
     printf("Your gross pay is %lf\n", emp->grossPay);
     return;
