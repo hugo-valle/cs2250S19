@@ -33,6 +33,7 @@ bool SeatIsEmpty(Seat seat);      // pass by value
 void SeatPrint(Seat seat);
 void SeatsMakeEmpty(Seat seats[], int numSeats);
 void SeatsPrint(Seat seats[], int numSeats);
+char SeatsMenu();
 
 
 #endif /* ----- #ifndef SEATS__INC__ ----- */

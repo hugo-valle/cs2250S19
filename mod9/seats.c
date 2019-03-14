@@ -31,9 +31,9 @@ void SeatPrint(Seat seat)
 /*** Functions for array of Seat ***/
 void SeatsMakeEmpty(Seat seats[], int numSeats) 
 {
-    int i;
-
-    for (i = 0; i < numSeats; ++i) {
+    for (int i = 0; i < numSeats; ++i) 
+    {
+        // Take the address of a Seat structure
         SeatMakeEmpty(&seats[i]);
     }
 }
@@ -48,3 +48,15 @@ void SeatsPrint(Seat seats[], int numSeats)
     }
 }
 /*** End functions for array of Seat ***/
+char SeatsMenu()
+{
+    char input;
+    printf("Enter command: \n");
+    printf("\t for printing press: p\n");
+    printf("\t for reservation press: r\n");
+    printf("\t to cancel a reservation press: d\n");
+    printf("\t to quit press: q\n");
+    scanf(" %c", &input);
+
+    return input;
+}
