@@ -41,30 +41,48 @@ int main(int argc, char* argv[])
     char name[MAX] = "";
     char ans = 'y';
     char dummy;
-//    Student st;
     Student *headRec = NULL;
-//    Student *nextRec = NULL;
-//    Student *currentRec = NULL;
-    
+    Student *nextRec = NULL;
+    Student *currentRec = NULL;
+    // Main Loop
     while(ans == 'y')
     {
         // Allocate the memory for the new record
-        headRec = (Student*) malloc(sizeof(Student));
-
+        nextRec = (Student*) malloc(sizeof(Student));
+        // save the address of the first record
+        if(currentRec == NULL)
+        {
+            headRec = nextRec;
+        }
+        else
+        {
+            // Only link records after one iteration
+            LinkStudent(currentRec, nextRec);
+        }
+        // Capture user input
         printf("Student %d\n", id + 1);
         id = id + 1;
         printf("Enter your name:\n");
         fgets(name, MAX, stdin);
         name[strlen(name) - 1] = '\0';  // Eliminate EOL character
         // Save it to a Student struct
-        AddStudent(headRec, name, id, NULL);
+        AddStudent(nextRec, name, id, NULL);
         // Do you want another record [y|n]
         printf("Do you want another record [y|n]:");
         scanf("%c%c", &ans, &dummy);
         fflush(stdin);
+        // Save the current record before you request another 
+        currentRec = nextRec;
     }
     // Display ALL student records    
-    DisplayStudent(headRec);
+    currentRec = headRec;
+    while(currentRec != NULL)
+    {
+        // Display one record;
+        DisplayStudent(currentRec);
+        // Get the next record
+        currentRec = currentRec->next;
+    }
 
     return 0;
 }
@@ -106,10 +124,6 @@ void DisplayStudent(const Student* st)
  */
 void LinkStudent(Student* thisStudent, Student* newStudent)
 {
-    // Connect the records
-    Student* tmp = NULL;                // dummy
-    tmp = thisStudent->next;            // currently should be NULL
     thisStudent->next = newStudent;     // Connect this to next record
-    newStudent->next =  tmp;            // This is end of the list
     return;
 }
