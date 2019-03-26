@@ -45,7 +45,30 @@ int main(int argc, char* argv[])
 
 void PrintMenu(char playlistTitle[])
 {
-    printf("Welcome to my [%s] list\n", playlistTitle);
+    // Create a bunch of temp variables: chars, ints, and PlaylistNode(pointers)
+    char menuOp = ' ';
+    // Output menu option 
+    // Create a loop to print your options
+    while(menuOp != 'q')
+    {
+        printf("%s PLAYLIST MENU\n", playlistTitle);  // TODO: Remove before upload to zybooks
+        // Check for valid choices
+
+        // Set corresponding menu action: 
+        // switch menuOp
+        //
+        // case 'a': Add a song
+        // case 'r': Output playlist message
+        // case 'c': Prompt user for new song location
+        // case 's': Output songs by specific artist
+        // case 't': Output the total time of songs in sec
+        // case 'o': Output full play list
+        // case 'q': to quit, which is the exit of your loop
+        menuOp = 'q'; // TODO: Remove, this is only for testing
+    }// end of loop
+
+
+
     return;
 }
 
