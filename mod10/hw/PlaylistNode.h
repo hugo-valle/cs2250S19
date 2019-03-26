@@ -35,9 +35,9 @@ void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[],
 void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode);
 void SetNextPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode);
 
-PlaylistNode* GetNextPlaylistNode();
+PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode);
 
-void PrintlistNode();
+void PrintlistNode(PlaylistNode* thisNode);
 
 #endif /* ----- #ifndef PLAYLISTNODE__INC__ ----- */
 
