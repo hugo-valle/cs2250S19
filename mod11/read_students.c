@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     fclose(fptr);  // close file
     
     // Now open the file for reading
-    if((fptr = fopen("students.txt", "r")) == NULL) // for writting
+    if((fptr = fopen("students.txt", "r")) == NULL) // for reading
     {
         printf("Error!. Could not opening file\n");
         exit(1);
