@@ -32,11 +32,7 @@ class Movie
    // Anyone has access to it. Member functions are public
     public:
         // Constructors
-        Movie();   // default
-        // Another constructor
-//        Movie(string title = "", int year = 1988);
-        Movie(string title, int year, int stars);
-//        Movie(string title);
+        Movie(string title = "", int year = 1988, int stars = 0);
         // Destructor
         ~Movie();
         // "Setters"
