@@ -18,9 +18,26 @@
  */
 // For C++ Code
 #include <iostream>
+#include <iomanip>  // more cout options
 #include "Movie.h"
 using namespace std;
 
+// Default constructor
+Movie::Movie()
+{
+    title = "";
+    year = 1888;
+}
+// Print info
+void Movie::info()const
+{
+    int w = 10;
+    cout << left
+        << setw(w*3) << "TITLE"
+        << setw(w) << "YEAR" << endl;
+    cout << setw(w*3) << get_title()
+        << setw(w) << get_year() << endl;
+}
 // Function Definitions
 void Movie::set_title(string set_title)
 {

@@ -38,6 +38,7 @@ class Movie
         // "Getters"
         string get_title() const;
         int get_year() const;
+        void info() const;
 }; // end of Movie class
 
 #endif /* ----- #ifndef MOVIE__INC__ ----- */
