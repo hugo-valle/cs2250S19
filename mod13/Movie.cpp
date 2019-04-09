@@ -25,8 +25,26 @@ using namespace std;
 // Default constructor
 Movie::Movie()
 {
-    title = "";
+    title = "Nada";
     year = 1888;
+}
+
+Movie::Movie(string title, int year)
+{
+    set_title(title);
+    set_year(year);
+}
+
+// Destructor
+Movie::~Movie()
+{
+    cout << "Destroying Object" << endl;
+}
+
+Movie::Movie(string title)
+{
+    set_title(title);
+    set_year(1888);
 }
 // Print info
 void Movie::info()const

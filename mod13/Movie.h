@@ -32,6 +32,12 @@ class Movie
     public:
         // Constructors
         Movie();   // default
+        // Another constructor
+//        Movie(string title = "", int year = 1988);
+        Movie(string title, int year);
+        Movie(string title);
+        // Destructor
+        ~Movie();
         // "Setters"
         void set_title(string set_title);
         void set_year(int year);

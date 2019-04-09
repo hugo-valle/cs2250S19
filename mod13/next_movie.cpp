@@ -21,14 +21,18 @@
 using namespace std;
 #include "Movie.h"
 
-
-// Constants and Globals
-
-// Function Prototypes
-
 // Main Function
 int main(int argc, char* argv[])
 {
+    // Create object with default values
+    Movie m1;
+    m1.info();
+    // Create object with some values
+    Movie m2("Rambo", 1991);
+    m2.info();
+    // Create object with one set value, and a default value
+    Movie m3("Superman");
+    m3.info();
 
     return 0;
 }
