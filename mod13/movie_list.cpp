@@ -31,16 +31,46 @@ const string movie_file = "movies.txt";
 // Function Prototypes
 void display_menu();
 vector<Movie> read_movies_from_file();
+void view_movies(const vector<Movie>& movies);
 // Main Function
 int main(int argc, char* argv[])
 {
     cout << "The Movie List program\n" << endl;
     display_menu();
     vector<Movie> movies = read_movies_from_file();
+    char command = 'v';
+    while(command != 'x')
+    {
+        view_movies(movies);
+
+        command = 'x';
+    } // end of while command
 
     return 0;
 }
 // Function Defenitions
+void view_movies(const vector<Movie>& movies)
+{
+    int width = 8;
+    cout << left
+        << setw(width / 2) << " "
+        << setw(width * 4) << "TITLE"
+        << setw(width) << "YEAR"
+        << setw(width) << "STARS" << endl;
+    // Loop over vector and get info using your getters
+    int number = 1;
+    for(Movie movie : movies)
+    {
+        cout << setw(width / 2) << number
+            << setw(width*4) << movie.get_title()
+            << setw(width) << movie.get_year()
+            << setw(width) << movie.get_stars() << endl;
+        number++;
+    }
+    cout << endl;
+}
+
+//
 vector<Movie> read_movies_from_file()
 {
     vector<Movie> movies;
