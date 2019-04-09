@@ -35,7 +35,7 @@ class Movie
         Movie();   // default
         // Another constructor
 //        Movie(string title = "", int year = 1988);
-        Movie(string title, int year);
+        Movie(string title, int year, int stars);
 //        Movie(string title);
         // Destructor
         ~Movie();
