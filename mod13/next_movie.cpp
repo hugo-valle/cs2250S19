@@ -28,10 +28,10 @@ int main(int argc, char* argv[])
     Movie m1;
     m1.info();
     // Create object with some values
-    Movie m2("Rambo", 1991);
+    Movie m2("Rambo", 1991, 5);
     m2.info();
     // Create object with one set value, and a default value
-    Movie m3("Superman");
+    Movie m3("Superman", 1987, 3);
     m3.info();
 
     return 0;

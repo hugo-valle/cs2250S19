@@ -27,12 +27,14 @@ Movie::Movie()
 {
     title = "Nada";
     year = 1888;
+    stars = 0;
 }
 
-Movie::Movie(string title, int year)
+Movie::Movie(string title, int year, int stars)
 {
     set_title(title);
     set_year(year);
+    set_stars(stars);
 }
 
 // Destructor
@@ -41,11 +43,11 @@ Movie::~Movie()
     cout << "Destroying Object" << endl;
 }
 
-Movie::Movie(string title)
-{
-    set_title(title);
-    set_year(1888);
-}
+//Movie::Movie(string title)
+//{
+//    set_title(title);
+//    set_year(1888);
+//}
 // Print info
 void Movie::info()const
 {
@@ -74,6 +76,13 @@ void Movie::set_year(int year)
     this->year = year;
 }
 
+void Movie::set_stars(int stars)
+{
+    // this-> refers to yourself
+    // required because of the same name
+    this->stars = stars;
+}
+
 // Define Getters
 string Movie::get_title() const
 {
@@ -85,3 +94,7 @@ int Movie::get_year() const
     return year;
 }
 
+int Movie::get_stars() const
+{
+    return stars;
+}

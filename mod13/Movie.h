@@ -28,6 +28,7 @@ class Movie
     private:
         string title;
         int year;
+        int stars;
    // Anyone has access to it. Member functions are public
     public:
         // Constructors
@@ -35,15 +36,18 @@ class Movie
         // Another constructor
 //        Movie(string title = "", int year = 1988);
         Movie(string title, int year);
-        Movie(string title);
+//        Movie(string title);
         // Destructor
         ~Movie();
         // "Setters"
         void set_title(string set_title);
         void set_year(int year);
+        void set_stars(int stars);
         // "Getters"
         string get_title() const;
         int get_year() const;
+        int get_stars() const;
+        // Others
         void info() const;
 }; // end of Movie class
 
