@@ -157,15 +157,17 @@ void add_movie(vector<Movie>& movies)
     Movie movie = get_movie();
     // check if movie already exists
     bool already_exists = false;
-//    for (Movie& m : movies) 
-//    {
-//        if (m.iequals(movie)) 
-//        {
-//            already_exists = true;
-//            m.set_stars(movie.get_stars());
-//            break;
-//        }
-//    }
+    for (Movie& m : movies) 
+    {
+        // Check if movie record already exists
+        if (m.iequals(movie)) 
+        {
+            already_exists = true;
+            // Updating the star number
+            m.set_stars(movie.get_stars());
+            break;
+        }
+    }
 
     if (already_exists)
     {

@@ -29,6 +29,7 @@ class Movie
         string title;
         int year;
         int stars;
+        string to_upper(string);
    // Anyone has access to it. Member functions are public
     public:
         // Constructors
@@ -45,6 +46,7 @@ class Movie
         int get_stars() const;
         // Others
         void info() const;
+        bool iequals(const Movie&);
 }; // end of Movie class
 
 #endif /* ----- #ifndef MOVIE__INC__ ----- */
