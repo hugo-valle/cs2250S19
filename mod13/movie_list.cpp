@@ -24,6 +24,7 @@
 #include <string>       // for strings
 #include <fstream>      // for file stream
 #include <sstream>      // to read strings with spaces
+#include <stdio.h>
 #include "Movie.h"
 using namespace std;
 // Constants and Globals
@@ -76,17 +77,24 @@ vector<Movie> read_movies_from_file()
     vector<Movie> movies;
     // Read file
     ifstream input_file(movie_file);
+    // Read the Data from the file  as Strings
     if(input_file) // if file opened successfully
     {
         string line; 
         while(getline(input_file, line))
         {
-            stringstream ss(line);  // read the line and cast it as string
+            // Use for breaking words
+            stringstream ss(line);  
             // Now ready to parse the line
-            string title;
+            string title, temp;
             int year, stars;
-            getline(ss, title, ','); // read title until you get a \t
-            ss >> year >> stars;        // get year and stars
+            getline(ss, title, ','); // read title until you get a ','
+            
+            getline(ss, temp, ','); // read title until you get a ','
+            year = stoi(temp); // convert string to integer
+            
+            getline(ss, temp, ','); // read title until you get a ','
+            stars = stoi(temp);
 //            cout << title << " year=" << year << " stars=" << stars << " extra "<< endl; // TODO Debug 
             // Create and add movie object to vector
             movies.push_back(Movie(title, year, stars));
