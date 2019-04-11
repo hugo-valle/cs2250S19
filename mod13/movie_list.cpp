@@ -37,14 +37,30 @@ void view_movies(const vector<Movie>& movies);
 int main(int argc, char* argv[])
 {
     cout << "The Movie List program\n" << endl;
-    display_menu();
     vector<Movie> movies = read_movies_from_file();
     char command = 'v';
     while(command != 'x')
     {
-        view_movies(movies);
-
-        command = 'x';
+        display_menu();
+        cout << "Command: ";
+        cin >> command;
+        switch(command)
+        {
+            case 'v':
+                view_movies(movies);
+                break;
+            case 'a':
+                // add_movie(movies);
+                break;
+            case 'd':
+                // delete_movie(movies);
+                break;
+            case 'x':
+                cout << "Bye!" << endl << endl;
+                break;
+            default:
+                cout << "Not a valid command. Please try again." << endl;
+        }  // end of switch(command)
     } // end of while command
 
     return 0;
