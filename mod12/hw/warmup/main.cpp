@@ -39,6 +39,7 @@ int main()
     {
         cout << "Item " << i + 1 << endl;
         cout << "Enter the item name:" << endl;
+        cin.ignore(1000, '\n');
         getline(cin, name);
 
         cout << "Enter the item price:" << endl;
