@@ -105,14 +105,47 @@ void List::insert_position(int pos, int value)
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_first
+ *  Description:  Delete first member of the list.
+ *  Remapped the head
+ * =====================================================================================
+ */
 void List::delete_first()
 {
+    node *temp = new node;
+    temp = head; // save old head
+    head = head->next;
+    
+    delete temp; // free this memory
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_last
+ *  Description:  Delete last member of the list.
+ *  Set the new last member to NULL
+ * =====================================================================================
+ */
 void List::delete_last()
 {
+    node *current = new node;
+    node *prev = new node;
+    current = head; // point at first
+    // loop until the end
+    while(current->next != NULL) 
+    {
+        prev = current;
+        current = current->next;
+    }
+    // set last member
+    tail = prev;
+    prev->next = NULL; // last member
+
+    delete current;
     return;
 }
 
