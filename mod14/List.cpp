@@ -39,8 +39,21 @@ void List::createnode(int value)
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  display
+ *  Description:  Display Linked list
+ * =====================================================================================
+ */
 void List::display()
 {
+    node *temp = new node;
+    temp = head;
+    while(temp != NULL)
+    {
+        cout << temp->data << "\t";
+        temp = temp->next; // point to next member
+    }
     return;
 }
 
