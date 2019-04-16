@@ -32,6 +32,7 @@ void List::createnode(int value)
     }
     else  // second or more nodes
     {
+        // Insert at the end of list
         tail->next = temp;
         tail = temp;
     }
@@ -58,14 +59,48 @@ void List::display()
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  insert_start
+ *  Description:  Insert a node at the begining of 
+ *  the list. Remapped your head pointer
+ * =====================================================================================
+ */
 void List::insert_start(int value)
 {
+    // Create the new node
+    node *temp = new node;
+    temp->data = value;
+    temp->next = head;
+    // Set the head pointer
+    head = temp;   
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  insert_position
+ *  Description:  Inserta at giving index position. 
+ *  Then, reconnect the list
+ * =====================================================================================
+ */
 void List::insert_position(int pos, int value)
 {
+    node *prev = new node;
+    node *temp = new node;
+    node *cur = new node;
+
+    cur = head; // point to first member
+    for(int i = 1; i < pos; i++)
+    {
+        prev = cur;
+        cur = cur->next;
+    }
+    // Conect prev to curr to the rest
+    temp->data = value;
+    prev->next = temp;
+    temp->next = cur;
     return;
 }
 
