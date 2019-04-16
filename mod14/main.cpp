@@ -62,10 +62,10 @@ int main(int argc, char* argv[])
     obj.delete_last();
     obj.display();
     cout<<"\n--------------------------------------------------\n";
-//    cout<<"--------------Deleting At Particular--------------";
-//    cout<<"\n--------------------------------------------------\n";
-//    obj.delete_position(4);
-//    obj.display();
-//    cout<<"\n--------------------------------------------------\n";
+    cout<<"--------------Deleting At Particular--------------";
+    cout<<"\n--------------------------------------------------\n";
+    obj.delete_position(4);
+    obj.display();
+    cout<<"\n--------------------------------------------------\n";
     return 0;
 }

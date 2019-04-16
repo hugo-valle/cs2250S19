@@ -150,7 +150,39 @@ void List::delete_last()
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_position
+ *  Description:  Delete by a given position in the list.
+ * =====================================================================================
+ */
 void List::delete_position(int pos)
 {
+    node *current = new node;
+    node *prev = new node;
+    current = head; // point at first
+    int list_size = 0;
+    // Make sure you are within boundaries of the list by number of elements
+    while(current->next != NULL)
+    {
+        list_size++;
+        current = current->next;
+    }
+    if(pos > list_size)
+    {
+        cout << "Position out of bounce " << endl;
+        return;
+    }
+    // Loop over nodes
+    current = head; // point at first
+    for(int i = 1; i < pos; i++)
+    {
+        prev = current;
+        current = current->next;
+    }
+    // Set new addresses
+    prev->next = current->next;
+
+    delete current;
     return;
 }
