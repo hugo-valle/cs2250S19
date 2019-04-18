@@ -120,7 +120,8 @@ void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
     }
     else        // Otherwise insert to end of playlist and update tail
     {
-        // ....
+        tailNode->InsertAfter(newSong);  // insert node after
+        tailNode = tailNode->GetNext();
     }
     cout << endl;
     return;
